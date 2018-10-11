@@ -6,7 +6,7 @@ function Contact(first, last) {
   this.lastName = last;
 }
 
-//add new method for the contact object
+//add new method for the contact prototype so it doesn't have to be instantiated every time the object is.
 Contact.prototype.fullName = function() {
   return this.firstName + " " + this.lastName;
 }
