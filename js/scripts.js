@@ -4,6 +4,14 @@
 function Contact(first, last) {
   this.firstName = first;
   this.lastName = last;
+  this.address = [];
+}
+
+function Address(street, city, state, zip) {
+  this.street = street;
+  this.city = city;
+  this.state = state;
+  this.zip = zip;
 }
 
 //add new method for the contact prototype so it doesn't have to be instantiated every time the object is.
