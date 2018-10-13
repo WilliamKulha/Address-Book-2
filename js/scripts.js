@@ -80,7 +80,7 @@ $(document).ready(function() {
       let inputtedCity = $(this).find(`input.new-city`).val();
       let inputtedState = $(this).find(`input.new-state`).val();
       let inputtedZip = $(this).find(`input.new-zip`).val();
-      let newAddress = new Address(inputtedStreet, inputtedCity, inputtedState, inputtedZip);
+      let newAddress = new Address(inputtedType, inputtedStreet, inputtedCity, inputtedState, inputtedZip);
       newContact.addresses.push(newAddress);
     });
     $('#contacts').append('<li><span class="contact">' + newContact.fullName() + '<span></li>');
