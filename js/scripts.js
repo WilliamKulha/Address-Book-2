@@ -68,7 +68,11 @@ $(document).ready(function() {
       $('#show-contact h2').text(newContact.firstName);
       $('.first-name').text(newContact.firstName);
       $('.last-name').text(newContact.lastName);
-    })
+      $('ul#addresses').text('');
+      newContact.addresses.forEach(function(address) {
+        $('ul#addresses').append(`<li>${address.street}<br> ${address.city}, ${address.state} <br> ${address.zip}</li>`)
+      });
+    });
     $('#new-first-name').val("");
     $('#new-last-name').val("");
   });
