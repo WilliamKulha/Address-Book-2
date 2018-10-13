@@ -14,6 +14,10 @@ const addressForm = '<div class="new-address">' +
                          '<label for="new-state">State</label>' +
                          '<input type="text" class="form-control new-state">' +
                        '</div>' +
+                       '<div class="form-group">' +
+                         '<label for="new-zip">Zip</label>' +
+                         '<input type="number" class="form-control new-zip">' +
+                       '</div>' +                       
                      '</div>';
 
 //Constructor for contacts.
