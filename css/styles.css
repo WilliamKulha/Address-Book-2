@@ -10,3 +10,17 @@
 .contact:hover {
   text-decoration:underline;
 }
+
+#show-contact {
+  margin:5px;
+  box-shadow:2.5px 5px 5px 5px #D8D8D8;
+  padding: 1em;
+}
+
+#show-contact h2 {
+  font-weight:bold;
+}
+
+#show-contact:hover {
+  box-shadow:2.5px 5px 5px 5px #303030;
+}
