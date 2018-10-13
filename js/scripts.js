@@ -1,7 +1,7 @@
 //Business logic
 
 //Put Address form here so it's less cumbersome in the main code.
-const addressForm = '<div class="new-address">' +
+const addressForm = '<div class="new-address additional">' +
                       '<div class="form-group">' +
                         '<label for="new-type">What kind of address(Work, home, condo, etc)</label>' +
                         '<input type="text" class="form-control new-type">' +
@@ -50,6 +50,11 @@ Address.prototype.fullAddress = function() {
   return `${this.type}<br>${this.street} <br> ${this.city}, ${this.state}<br>${this.zip}`
 }
 
+//Function to remove all but one of the address forms.
+let removeAddressForms = function() {
+  $(`.additional`).remove();
+}
+
 //Function to empty input fields when the user has submitted the form.
 function emptyForms() {
   $('#new-first-name').val("");
@@ -94,6 +99,7 @@ $(document).ready(function() {
         $('ul#addresses').append(`<li>${address.fullAddress()}</li>`)
       });
     });
+    removeAddressForms();
     emptyForms();
   });
 });
