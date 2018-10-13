@@ -90,7 +90,9 @@ $(document).ready(function() {
     });
     $('#contacts').append('<li><span class="contact">' + newContact.fullName() + '<span></li>');
     $('.contact').last().click(function() {
-      $('#show-contact').slideDown();
+      $(`#show-contact`).animate({
+        height: 'toggle'
+      });
       $('#show-contact h2').text(newContact.firstName);
       $('.first-name').text(newContact.firstName);
       $('.last-name').text(newContact.lastName);
