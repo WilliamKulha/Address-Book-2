@@ -2,6 +2,10 @@
 
 //Put Address form here so it's less cumbersome in the main code.
 const addressForm = '<div class="new-address">' +
+                      '<div class="form-group">' +
+                        '<label for="new-type">What kind of address(Work, home, condo, etc)</label>' +
+                        '<input type="text" class="form-control new-type">' +
+                      '</div>' +
                        '<div class="form-group">' +
                          '<label for="new-street">Street</label>' +
                          '<input type="text" class="form-control new-street">' +
@@ -17,7 +21,7 @@ const addressForm = '<div class="new-address">' +
                        '<div class="form-group">' +
                          '<label for="new-zip">Zip</label>' +
                          '<input type="number" class="form-control new-zip">' +
-                       '</div>' +                       
+                       '</div>' +
                      '</div>';
 
 //Constructor for contacts.
@@ -28,7 +32,8 @@ function Contact(first, last) {
 }
 
 //Constructor for addresses.
-function Address(street, city, state, zip) {
+function Address(type, street, city, state, zip) {
+  this.type = type
   this.street = street;
   this.city = city;
   this.state = state;
@@ -42,13 +47,14 @@ Contact.prototype.fullName = function() {
 
 //New method for address prototype to return full addresses.
 Address.prototype.fullAddress = function() {
-  return `${this.street} <br> ${this.city}, ${this.state}<br>${this.zip}`
+  return `${this.type}<br>${this.street} <br> ${this.city}, ${this.state}<br>${this.zip}`
 }
 
 //Function to empty input fields when the user has submitted the form.
 function emptyForms() {
   $('#new-first-name').val("");
   $('#new-last-name').val("");
+  $('.new-type').val("");
   $('.new-street').val("");
   $('.new-city').val("");
   $('.new-state').val("");
@@ -69,6 +75,7 @@ $(document).ready(function() {
     let newContact = new Contact(contactFirstName, contactLastName);
 
     $('.new-address').each(function() {
+      let inputtedType = $(this).find(`input.new-type`).val();
       let inputtedStreet = $(this).find(`input.new-street`).val();
       let inputtedCity = $(this).find(`input.new-city`).val();
       let inputtedState = $(this).find(`input.new-state`).val();
