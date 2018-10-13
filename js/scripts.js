@@ -40,6 +40,16 @@ Contact.prototype.fullName = function() {
 Address.prototype.fullAddress = function() {
   return `${this.street} <br> ${this.city}, ${this.state}<br>${this.zip}`
 }
+
+//Function to empty input fields when the user has submitted the form.
+function emptyForms() {
+  $('#new-first-name').val("");
+  $('#new-last-name').val("");
+  $('.new-street').val("");
+  $('.new-city').val("");
+  $('.new-state').val("");
+  $('.new-zip').val('');
+}
 //User logic
 $(document).ready(function() {
   $('#add-address').click(function() {
@@ -70,10 +80,9 @@ $(document).ready(function() {
       $('.last-name').text(newContact.lastName);
       $('ul#addresses').text('');
       newContact.addresses.forEach(function(address) {
-        $('ul#addresses').append(`<li>${address.street}<br> ${address.city}, ${address.state} <br> ${address.zip}</li>`)
+        $('ul#addresses').append(`<li>${address.fullAddress()}</li>`)
       });
     });
-    $('#new-first-name').val("");
-    $('#new-last-name').val("");
+    emptyForms();
   });
 });
